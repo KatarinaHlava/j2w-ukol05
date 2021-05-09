@@ -11,101 +11,107 @@
     <!-- <link rel="stylesheet" href="/style.css"/>-->
 </head>
 <body background="https://source.unsplash.com/w55SpMmoPgE">
-<div class="p-3 mb-2 bg-transparent text-white">
-    <form th:action="@{/index.html}" method="post">
+<div class="card" style="width: 38rem;">
+    <form th:action="@{/}" method="post">
         <h1>Registrace na ty nejlepší letní tábory</h1>
+        <div class="card-body">
+            <label for="jmeno">Jméno:</label>
+            <input id="jmeno" required type="text" th:field="${form.jmeno}"/>
+            <div class="alert alert-danger" role="alert"  th:if="${#fields.hasErrors('form.jmeno')}" th:errors="${form.jmeno}"></div>
 
-        <label for="jmeno">Jméno:</label>
-        <input id="jmeno" required type="text" th:field="${form.jmeno}"/>
-        <div class="error" th:if="${#fields.hasErrors('form.jmeno')}" th:errors="${form.jmeno}"></div>
-
-        <label for="prijmeni" class="radek">Příjmení:</label>
-        <input id="prijmeni" required type="text" th:field="${form.prijmeni}"/>
-        <div class="error" th:if="${#fields.hasErrors('form.jmeno')}" th:errors="${form.prijmeni}"></div>
-        <div>
-            <label for="datumNarozeni">Datum narozeni</label>
-            <input id="datumNarozeni" required type=date th:field="${form.datumNarozeni}"/>
-        </div>
-
-        <div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="druh1" type="radio" th:field="${form.pohlavi}" value="KLUK"/>
-                <label class="form-check-label" for="druh1">Kluk</label>
+            <label for="prijmeni" class="radek">Příjmení:</label>
+            <input id="prijmeni" required type="text" th:field="${form.prijmeni}"/>
+            <div class="alert alert-danger" role="alert"  th:if="${#fields.hasErrors('form.prijmeni')}" th:errors="${form.prijmeni}"></div>
+            <div>
+                <label for="datumNarozeni">Datum narozeni</label>
+                <input id="datumNarozeni" required type=date th:field="${form.datumNarozeni}"/>
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('form.datumNarozeni')}" th:errors="${form.datumNarozeni}"></div>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="druh2" type="radio" th:field="${form.pohlavi}" value="HOLKA"/>
-                <label class="form-check-label" for="druh2">Holka</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="druh3" type="radio" th:field="${form.pohlavi}" value="JINE"/>
-                <label class="form-check-label" for="druh3">jine</label>
-            </div>
-
-            <div class="error" th:if="${#fields.hasErrors('form.pohlavi')}" th:errors="${form.pohlavi}"></div>
-
 
             <div>
-                Jake sporty dite bavi? zvolte minimalne 2:
-                <!--    PLAVANI, FUBAL,ATLETIKA,VOLEJBAL,TENIS, CYKLISTIKA;-->
-                <div class="form-check">
-                    <input class="form-check-input" id="sport1" name="sport" type="checkbox" th:field="${form.sporty}"
-                           value="PLAVANI">
-                    <label class="form-check-label" for="sport1">Plavani</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="druh1" type="radio" th:field="${form.pohlavi}" value="KLUK"/>
+                    <label class="form-check-label" for="druh1">Kluk</label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" id="sport2" type="checkbox" name="sport" th:field="${form.sporty}"
-                           value="FUBAL">
-                    <label class="form-check-label" for="sport2">Futbal</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="druh2" type="radio" th:field="${form.pohlavi}" value="HOLKA"/>
+                    <label class="form-check-label" for="druh2">Holka</label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" id="sport3" type="checkbox" name="sport" th:field="${form.sporty}"
-                           value="ATLETIKA">
-                    <label class="form-check-label" for="sport3">Atletika</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="druh3" type="radio" th:field="${form.pohlavi}" value="JINE"/>
+                    <label class="form-check-label" for="druh3">jine</label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" id="sport4" type="checkbox" name="sport" th:field="${form.sporty}"
-                           value="VOLEJBAL">
-                    <label class="form-check-label" for="sport4">Volejbal</label>
+
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('form.pohlavi')}" th:errors="${form.pohlavi}"></div>
+
+
+                <div>
+                    Jake sporty dite bavi? zvolte minimalne 2:
+                    <!--    PLAVANI, FUBAL,ATLETIKA,VOLEJBAL,TENIS, CYKLISTIKA;-->
+                    <div class="form-check">
+                        <input class="form-check-input" id="sport1" name="sport" type="checkbox"
+                               th:field="${form.sporty}"
+                               value="PLAVANI">
+                        <label class="form-check-label" for="sport1">Plavani</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" id="sport2" type="checkbox" name="sport"
+                               th:field="${form.sporty}"
+                               value="FUBAL">
+                        <label class="form-check-label" for="sport2">Futbal</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" id="sport3" type="checkbox" name="sport"
+                               th:field="${form.sporty}"
+                               value="ATLETIKA">
+                        <label class="form-check-label" for="sport3">Atletika</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" id="sport4" type="checkbox" name="sport"
+                               th:field="${form.sporty}"
+                               value="VOLEJBAL">
+                        <label class="form-check-label" for="sport4">Volejbal</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" id="sport5" type="checkbox" name="sport"
+                               th:field="${form.sporty}"
+                               value="TENIS">
+                        <label class="form-check-label" for="sport5">TENIS</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" id="sport6" type="checkbox" name="sport"
+                               th:field="${form.sporty}"
+                               value="CYKLISTIKA">
+                        <label class="form-check-label" for="sport6">CYKLISTIKA</label>
+                    </div>
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('form.sporty')}" th:errors="${form.sporty}"></div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" id="sport5" type="checkbox" name="sport" th:field="${form.sporty}"
-                           value="TENIS">
-                    <label class="form-check-label" for="sport5">TENIS</label>
+
+
+                <label for="turnus">TURNUS:</label>
+                <select id="turnus" name="turnus" th:field="${form.turnus}">
+                    <option value=""></option>
+                    <option value="1"> 5. až 11. července</option>
+                    <option value="2">12. až 18. července</option>
+                    <option value="3">19. až 25. července</option>
+                    <option value="4">1. az 14. srpna</option>
+                </select>
+                <div class="alert alert-danger" role="alert"  th:if="${#fields.hasErrors('form.turnus')}" th:errors="${form.turnus}"></div>
+
+                <label for="email">E-mail na rodice:</label>
+                <input id="email" type="email" th:field="${form.email}"/>
+                <div>
+                    <label for="telefon">Telefon na rodice:</label>
+                    <input id="telefon" type="text" th:field="${form.telefon}"/>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" id="sport6" type="checkbox" name="sport" th:field="${form.sporty}"
-                           value="CYKLISTIKA">
-                    <label class="form-check-label" for="sport6">CYKLISTIKA</label>
+
+                <div>
+                    <button class="btn btn-primary btn-lg" type="submit">Rezervovat</button>
                 </div>
             </div>
 
-
-
-
-            <label for="turnus">TURNUS:</label>
-            <select id="turnus" name="turnus" th:field="${form.turnus}">
-                <option value=""></option>
-                <option value="1"> 5. až 11. července</option>
-                <option value="2">12. až 18. července</option>
-                <option value="3">19. až 25. července</option>
-                <option value="4">1. az 14. srpna</option>
-            </select>
-            <div class="error" th:if="${#fields.hasErrors('form.turnus')}" th:errors="${form.turnus}"></div>
-
-            <label for="email">E-mail na rodice:</label>
-            <input id="email" type="email" required th:field="${form.email}"/>
-<div>
-            <label for="telefon">Telefon na rodice:</label>
-            <input id="telefon" type="text" th:field="${form.telefon}"/>
         </div>
-
-            <div>
-                <button class="btn btn-primary btn-lg" type="submit">Rezervovat</button>
-            </div>
-        </div>
-
-
-</form>
+    </form>
 </div>
 
 </body>

@@ -1,5 +1,7 @@
 package cz.czechitas.java2webapps.ukol5.controller;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
@@ -18,6 +20,7 @@ public class RegistraceForm {
     @NotBlank
     private String prijmeni;
     @NotNull
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate datumNarozeni;
     @NotNull
     private Pohlavi pohlavi;
