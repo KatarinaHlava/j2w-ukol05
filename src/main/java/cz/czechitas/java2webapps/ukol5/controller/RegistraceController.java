@@ -30,23 +30,23 @@ public class RegistraceController {
   @PostMapping("")
 
   public Object form(@ModelAttribute("form") @Valid RegistraceForm form, BindingResult bindingResult) {
-
+    if (bindingResult.hasErrors()) {
+      return "/index";
+    }
     form.setVek(form.getDatumNarozeni());
     if (form.getVek() <9 || form.getVek()>15) {
       bindingResult.rejectValue("vek", "", "Deti musi mit vek od 9 do 15 let");
       return "/index";
-      //toto ocividne dobre nefunguje, hlasky s anezobrazia
+      //toto ocividne dobre nefunguje, hlasky sa nezobrazia
     }
     if (form.getSporty().size()<2){
       bindingResult.rejectValue("sport1", "", "Vyberte nejmene 2 sporty");
       return "/index";
     }
-    if (bindingResult.hasErrors()) {
-      return "/index";
-    }
+
     return new ModelAndView("/rezervovano")
-            .addObject("Jmeno", form.getJmeno() + ""+ form.getPrijmeni())
-            .addObject("turnus", form.getTurnus());
+            .addObject("jmeno", form.getJmeno() + " "+ form.getPrijmeni())
+            .addObject("turnus", form.getTurnus());  // k zobrazeniu tohto sa po kliknuti na tlacitko nikdy nedostanem. a neviem preco
   }
 
 
