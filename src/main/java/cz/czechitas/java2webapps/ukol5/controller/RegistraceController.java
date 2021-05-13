@@ -40,7 +40,7 @@ public class RegistraceController {
       //toto ocividne dobre nefunguje, hlasky sa nezobrazia
     }
     if (form.getSporty().size()<2){
-      bindingResult.rejectValue("sport1", "", "Vyberte nejmene 2 sporty");
+      bindingResult.rejectValue("sporty", "", "Vyberte nejmene 2 sporty");
       return "/index";
     }
 
