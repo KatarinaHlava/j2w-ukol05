@@ -37,9 +37,9 @@ public class RegistraceController {
     if (form.getVek() <9 || form.getVek()>15) {
       bindingResult.rejectValue("datumNarozeni", "", "Deti musi mit vek od 9 do 15 let");
       return "/index";
-      //toto ocividne dobre nefunguje, hlasky sa nezobrazia
+
     }
-    if (form.getSporty().size()<2){
+    if (form.getSporty().size()<2 || form.getSporty()==null){
       bindingResult.rejectValue("sporty", "", "Vyberte nejmene 2 sporty");
       return "/index";
     }
