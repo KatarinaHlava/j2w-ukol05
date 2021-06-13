@@ -121,14 +121,6 @@ public class RegistraceForm {
         Period diff = Period.between(datumNarozeni, LocalDate.now()); //difference between the dates is calculated
         this.vek = diff.getYears();
     }
-    //jméno (povinný údaj)
-    //příjmení (povinný údaj)
-    //datum narození (povinný údaj)
-    //pohlaví (chlapec/dívka – povinný údaj)
-    //zvolené sporty (např. plavání, běh, cyklistika, fotbal, basketbal – formou checkboxů)
-    //turnus (např. 5. až 11. července, 12. až 18. července, 19. až 25. července – povinný údaj)
-    //e-mail na rodiče (volitelný údaj)
-    //telefon na rodiče (volitelný údaj)
 
 
 }

@@ -35,7 +35,7 @@ public class RegistraceController {
     }
     form.setVek(form.getDatumNarozeni());
     if (form.getVek() <9 || form.getVek()>15) {
-      bindingResult.rejectValue("vek", "", "Deti musi mit vek od 9 do 15 let");
+      bindingResult.rejectValue("datumNarozeni", "", "Deti musi mit vek od 9 do 15 let");
       return "/index";
       //toto ocividne dobre nefunguje, hlasky sa nezobrazia
     }
@@ -46,14 +46,8 @@ public class RegistraceController {
 
     return new ModelAndView("/rezervovano")
             .addObject("jmeno", form.getJmeno() + " "+ form.getPrijmeni())
-            .addObject("turnus", form.getTurnus());  // k zobrazeniu tohto sa po kliknuti na tlacitko nikdy nedostanem. a neviem preco
+            .addObject("turnus", form.getTurnus());
   }
 
 
-  //V metodě controlleru zkontroluj následující podmínky. Pokud nebudou splněné, zařiď,
-  // by se u příslušného políčka vypsala odpovídající chybová zpráva.
-  //věk mezi 9 a 15 roky (včetně) – připomínám kód pro výpočet věku:
-  //Period period = birthDate.until(LocalDate.now());
-  //int vek = period.getYears();
-  //vybrané alespoň dva sporty – EnumSet má metodu size(), která vrací počet prvků v množině
 }
